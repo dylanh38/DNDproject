@@ -1,0 +1,68 @@
+import pygame
+
+brown = (85, 52, 43)
+black = (0, 0, 0)
+white = (255, 255, 255)
+
+
+# Main
+def main():
+    login_window()
+
+
+# Login window
+def login_window():
+    pygame.init()
+
+    screen = pygame.display.set_mode((400, 600))
+    running = True
+    image = pygame.image.load(r'C:\Users\dylan\PycharmProjects\dnd\Images\dnd2.jpg')
+    pygame.display.set_caption('DND PC Creator')
+
+    while running:
+        screen.fill(white)
+        screen.blit(image, (0, 0))
+
+        cursor = pygame.mouse.get_pos()
+        rel_x = cursor[0] // 10
+        rel_y = cursor[1] // 10
+
+        # login button hovered
+        if rel_x in range(10, 31) and rel_y in range(31, 42):
+            pygame.draw.rect(screen, black, [100, 310, 200, 10])
+            pygame.draw.rect(screen, black, [100, 310, 10, 100])
+            pygame.draw.rect(screen, black, [100, 400, 200, 10])
+            pygame.draw.rect(screen, black, [290, 310, 10, 100])
+
+        # sign up button hovered
+        elif rel_x in range(10, 31) and rel_y in range(45, 56):
+            pygame.draw.rect(screen, black, [100, 450, 200, 10])
+            pygame.draw.rect(screen, black, [100, 450, 10, 100])
+            pygame.draw.rect(screen, black, [100, 540, 200, 10])
+            pygame.draw.rect(screen, black, [290, 450, 10, 100])
+
+        # login button
+        pygame.draw.rect(screen, black, [100, 310, 200, 5])
+        pygame.draw.rect(screen, black, [100, 310, 5, 100])
+        pygame.draw.rect(screen, black, [100, 405, 200, 5])
+        pygame.draw.rect(screen, black, [295, 310, 5, 100])
+
+        # sign up button
+        pygame.draw.rect(screen, black, [100, 450, 200, 5])
+        pygame.draw.rect(screen, black, [100, 450, 5, 100])
+        pygame.draw.rect(screen, black, [100, 545, 200, 5])
+        pygame.draw.rect(screen, black, [295, 450, 5, 100])
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                quit()
+
+        pygame.display.update()
+
+
+# Main menu
+
+# Player window
+
+if __name__ == "__main__":
+    main()
